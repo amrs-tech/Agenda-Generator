@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href = "{% static 'style.css' %}" rel="stylesheet">
+<link href="{% static 'bootstrap.min.css'%}" rel="stylesheet" id="bootstrap-css">
+<script src="{% static 'bootstrap.min.js'%}"></script>
+<script src="{% static 'jquery.min.js' %}"></script>
+<script type="text/javascript">
+        var x = document.getElementById("myform");
+        x.onsubmit = function (){fun()};
+        function fun(){
+            window.alert("uploaded successfully!");
+        }
+</script>
+    <head>
+        <meta charset="utf-8">
+        <title>Agenda for Presentation</title>
+    </head>
+
+    <body>
+    <div class="container login-container">
+        <div class="row">
+    <!-- Upload form. Note enctype attribute! -->
+            <div class="col-md-6 login-form-1">
+                <h3>Presentation File</h3>
+        <form id = "myform" action="{% url 'list' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>{{ form.non_field_errors }}</p>
+
+            <p>{{ form.docfile.label_tag }} {{ form.docfile.help_text }}</p>
+            <div class="form-group">
+                <p>
+                {{ form.docfile.errors }}
+                {{ form.docfile }}
+                </p>
+            </div>
+                <div class="form-group"><input class = "btnSubmit" type="submit" value="Upload" /></div>
+        </form>
+            </div>
+        </div>
+        <br>
+        <b><a href="{% url 'agenda' %}">Click here to view agenda after uploading file</a></b>
+    </div>
+    </body>
+
+</html>

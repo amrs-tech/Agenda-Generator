@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Agenda for Presentation</title>
+</head>
+<body>
+<h3>Agenda of Presentation</h3>
+<ol>
+{% for i in titles %}
+<li>{{i}}</li>
+{% endfor %}
+</ol>
+<b>Estimated Presentation Time: </b>{{time}} second(s)<br>
+<script>alert("save this agenda for future use");</script>
+<b><a href="{% url 'list' %}">Click here for Home page</a></b>
+</body>
+</html>
